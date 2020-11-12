@@ -34,10 +34,10 @@ public class AmazonTestRunner {
 	  }
 	 
 	
-	//@AfterClass
+	@AfterClass
 	
-/*public static void browserQuit() {
+public static void browserQuit() {
 driver.quit();
-	}*/
+	}
 
 }
