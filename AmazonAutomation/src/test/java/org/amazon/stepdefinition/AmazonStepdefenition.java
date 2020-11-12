@@ -105,9 +105,14 @@ WebElement selectProduct = driver.findElement(By.xpath("//span[text()='Xiaomi Mi
 				Thread.sleep(5000);
 				
 			WebElement addToCartTextMsg =
-				 driver.findElement(By.xpath("//*[@id='attachDisplayAddBaseAlert']")); String
-				 txt = addToCartTextMsg.getText(); 
-				 System.out.println(txt);
+				 driver.findElement(By.xpath("//*[@id='attachDisplayAddBaseAlert']")); 
+				  String txt = addToCartTextMsg.getText(); 
+				  if (txt.equals("Added to Cart")) {
+					System.out.println("**********Your product is Added to the cart*************");
+				} else {
+System.out.println("+++++++++++++++No items are added to the cart+++++++++++++++++++++");
+				}
+				// System.out.println(txt);
 		         driver.close();
 		    
 		 }
@@ -208,6 +213,16 @@ public void user_click_proceed_to_buy_button() throws Throwable {
 	  public void user_click_delete() throws Throwable {
 	  
 	  elementClick(pm.getRp().getClick_Delete());
+		  
+		  Thread.sleep(5000);
+	 String cartEmpty = driver.findElement(By.xpath("//h1[@class='a-spacing-mini a-spacing-top-base']")).getText();
+	 //System.out.println(cartEmpty);
+	//assertEquals(cartEmpty, "Your Amazon Cart is empty");
+	 if (cartEmpty.equals("Your Amazon Cart is empty.")) {
+		System.out.println("**************Items removed from the cart sucessfully******************");
+	} else {
+        System.out.println("++++++++++++++No items remove from the cart+++++++++++++++++++++++++++++");
+	}
 }
 }
 	 
